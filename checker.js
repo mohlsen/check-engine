@@ -22,61 +22,50 @@ const validaters =
   }
 }
 
-let environmentValid = true;
-
 if (!engines) {
     console.log("No engines found in package.json");
     process.exit(-1);
 }
 
-
-let overallPromise = new Promise((resolve, reject) => {
-
+function runValidations() {
+    let environmentValid = true;
     const numberOfValidations = Object.keys(engines).length;
     let validationsComplete = 0;
+    let runningPromise = Promise.resolve();
 
     //iterate over the engines supplied
     Object.getOwnPropertyNames(engines).forEach(function (name) {
 
-        //find it in the validators
-        let validator = validaters[name];
+        runningPromise = runningPromise.then( () => {
 
-        if (validator === undefined) {
-            console.log(name + " was expected, but no validator found!  Aborting validation.")
-            process.exit(-1);
-        }
+            //find it in the validators
+            let validator = validaters[name];
 
-        //console.log("version " + engines[name]);
-        //call the validator and pass in the version we expect
-        execAndCheck(validator, engines[name]).then((result) => {
-            console.log(name + " was validated with " + engines[name]);
-            validationsComplete++;
-        })
-        .catch((error) => {
-            console.log(name + " version is not correct! Expected: " + engines[name] + " but was " + error);
-            environmentValid = false;
-            validationsComplete++;
-        })
+            if (validator === undefined) {
+                console.log(name + " was expected, but no validator found!  Aborting validation.")
+                process.exit(-1);
+            }
 
+            //console.log("version " + engines[name]);
+            //call the validator and pass in the version we expect
+            return execAndCheck(validator, engines[name]).then((result) => {
+                console.log(name + " was validated with " + engines[name]);
+                return Promise.resolve();
+            })
+            .catch((error) => {
+                console.log(name + " version is not correct! Expected: " + engines[name] + " but was " + error);
+                environmentValid = false;
+                return Promise.resolve(error);
+            })
+        });
     });
 
-    // while (validationsComplete != numberOfValidations) {
-    //     //if (validationsComplete >= numberOfValidations) {
-    //         if (environmentValid) {
-    //
-    //             resolve();
-    //         } else {
-    //             reject();
-    //         }
-    //     //}
-    // }
+    return runningPromise.then( () => {
+        return environmentValid ? Promise.resolve() : Promise.reject();
+    });
+}
 
-
-
-
-});
-
-overallPromise
+runValidations()
     .then( () => {
         console.log("Environment looks good!");
         process.exit(1);
@@ -85,9 +74,6 @@ overallPromise
         console.log("Environment is invalid!");
         process.exit(-1)
     });
-
-
-
 
 function execAndCheck(validator, expectedVersion) {
 
@@ -110,8 +96,3 @@ function execAndCheck(validator, expectedVersion) {
     return promise;
 
 };
-
-
-//console.log("Validating package.json engines");
-
-//console.log(engines);
