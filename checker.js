@@ -1,7 +1,6 @@
 'use strict';
 
 const exec = require('child_process').exec;
-const cp = require('child-process-es6-promise');
 const engines = require('./package.json').engines;
 const validaters =
 {

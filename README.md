@@ -14,9 +14,7 @@ For now (until it is built out as a node module),
     - xxx
  - run `node checker.js`
 
-It will parse your package json and
-
-
+It will parse your package json and validate that you have the versions installed.
 
 [thali]: http://thaliproject.org/
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
