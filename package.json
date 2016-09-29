@@ -1,0 +1,30 @@
+{
+  "name": "checker.js",
+  "version": "1.0.0",
+  "description": "A system version checker in Node.js",
+  "main": "checker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohlsen/checker.js.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Mike Ohlsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohlsen/checker.js/issues"
+  },
+  "homepage": "https://github.com/mohlsen/checker.js#readme",
+  "engines": {
+    "node": "5.10.4",
+    "npm": "3.8.3",
+    "osx": "10.11.2"
+  },
+  "dependencies": {
+    "child-process-es6-promise": "^1.0.0"
+  }
+}
