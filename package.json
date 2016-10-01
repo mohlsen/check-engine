@@ -22,7 +22,18 @@
   "engines": {
     "node": "5.10.1",
     "npm": "3.8.3",
-    "osx": "10.11.2"
+    "osx": "10.11.2",
+    "node": "5.10.1",
+    "jx": "0.3.1.4",
+    "cordova": "6.2.0",
+    "appium": "1.5.3",
+    "gulp": "3.9.1",
+    "ios-deploy": "1.8.6",
+    "ios-sim": "5.0.8",
+    "adb": "1.0.36",
+    "bower": "1.7.9"
   },
-  "dependencies": { }
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
 }
