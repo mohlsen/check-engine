@@ -86,7 +86,7 @@ function runValidations() {
 
             if (validator === undefined) {
                 console.log(colors.warn(colors.bold(name) +
-                    " was expected, but no validator found!  Aborting validation."))
+                    " was expected, but no validator found!"))
                 environmentValid = false;
                 return Promise.resolve();
             }
@@ -129,9 +129,10 @@ function execAndCheck(validator, expectedVersion) {
         exec(validator.versionCheck, (error, stdout, stderr) => {
             //console.log("err: " + error);
             if (error) {
+               //console.log("err: " + error);
                 error.stderr = stderr;
-                error.command = command;
-                return reject(error);
+                error.command = validator.versionCheck;
+                reject(stderr);
             }
 
             //console.log(validator.versionCheck + ", stdout:" + stdout);

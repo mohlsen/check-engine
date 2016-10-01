@@ -20,10 +20,9 @@
   },
   "homepage": "https://github.com/mohlsen/checker.js#readme",
   "engines": {
-    "node": "5.10.1",
+    "node": "6.7.0",
     "npm": "3.8.3",
     "osx": "10.11.2",
-    "node": "5.10.1",
     "jx": "0.3.1.4",
     "cordova": "6.2.0",
     "appium": "1.5.3",
