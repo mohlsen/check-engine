@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/mohlsen/checker.js#readme",
   "engines": {
-    "node": "6.7.0",
+    "node": "5.10.1",
     "npm": "3.8.3",
     "osx": "10.11.2",
     "jx": "0.3.1.4",
@@ -30,9 +30,11 @@
     "ios-deploy": "1.8.6",
     "ios-sim": "5.0.8",
     "adb": "1.0.36",
-    "bower": "1.7.9"
+    "bower": "1.7.9",
+    "ios-webkit-debug-proxy": "1.2"
   },
   "dependencies": {
+    "bluebird": "^3.4.6",
     "colors": "^1.1.2"
   }
 }

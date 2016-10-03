@@ -3,7 +3,9 @@
 const colors = require('colors');
 const exec = require('child_process').exec;
 const engines = require('./package.json').engines;
-const validaters =
+let Promise = require("bluebird");
+
+const validaterRules =
 {
     osx: {
         versionCheck: 'sw_vers -productVersion',
@@ -54,6 +56,11 @@ const validaters =
         versionCheck: 'cordova -v',
         versionValidate:
             (result, version) => version === result.trim()
+    },
+    "ios-webkit-debug-proxy": {
+        versionCheck: 'ios-webkit-debug-proxy',
+        versionValidate:
+            (result, version) => version === result.trim()
     }
 }
 
@@ -70,73 +77,71 @@ if (!engines) {
     process.exit(-1);
 }
 
-function runValidations() {
-    let environmentValid = true;
-    const numberOfValidations = Object.keys(engines).length;
-    let validationsComplete = 0;
-    let runningPromise = Promise.resolve();
+let environmentValid = true;
+const numberOfValidations = Object.keys(engines).length;
+const thingsToCheck = Object.getOwnPropertyNames(engines);
+var validators = thingsToCheck.map(validate); // run the function over all items.
 
-    //iterate over the engines supplied
-    Object.getOwnPropertyNames(engines).forEach(function (name) {
-
-        runningPromise = runningPromise.then( () => {
-
-            //find it in the validators
-            let validator = validaters[name];
-
-            if (validator === undefined) {
-                console.log(colors.warn(colors.bold(name) +
-                    " was expected, but no validator found!"))
-                environmentValid = false;
-                return Promise.resolve();
-            }
-
-            //console.log("version " + engines[name]);
-            //call the validator and pass in the version we expect
-            return execAndCheck(validator, engines[name]).then((result) => {
-                console.log(colors.success("✔ " + colors.bold(name) + " was validated with " + engines[name]));
-                return Promise.resolve();
-            })
-            .catch((error) => {
-                console.log(colors.error("✘ " + colors.bold(name) + " version is not correct! Expected: " + engines[name] +
-                    " but was " + error.trim()));
-                environmentValid = false;
-                return Promise.resolve(error);
-            })
-        });
-    });
-
-    return runningPromise.then( () => {
-        return environmentValid ? Promise.resolve() : Promise.reject();
-    });
-}
-
-runValidations()
-    .then( () => {
+Promise.all(validators.map(function(promise) {
+    return promise.reflect();
+})).each(function(inspection) {
+    if (inspection.isFulfilled()) {
+        if (!inspection.value()) {
+            environmentValid = false;
+        }
+    } else {
+        environmentValid = false;
+    }
+}).then((test) => {
+    if (environmentValid) {
         console.log(colors.success(colors.bold(colors.underline("Environment looks good!"))));
-        process.exit(1);
-    })
-    .catch( () => {
+    } else {
         console.log(colors.error(colors.bold(colors.underline("Environment is invalid!"))));
-        process.exit(-1)
-    });
+    }
+});
+
+function validate(name) {
+
+    //find it in the validators
+    const validator = validaterRules[name];
+
+    if (validator === undefined) {
+        console.log(colors.warn(colors.bold(name) + " was expected, but no validator found!"))
+        return Promise.resolve(false);
+    }
+
+    //call the validator and pass in the version we expect
+    return execAndCheck(validator, engines[name]).then((results) => {
+        if (results.result) {
+            console.log(colors.success("✔ " + colors.bold(name) + " was validated with " + engines[name]));
+        } else {
+            console.log(colors.error("✘ " + colors.bold(name) + " version is not correct! Expected: " +
+                engines[name] + " but was " + results.reason.trim()));
+        }
+
+        return Promise.resolve(results.result);
+    })
+    .catch((error) => {
+        console.log(colors.error("✘ Error validating " + colors.bold(name)) + ": " + error.trim());
+        return Promise.reject();
+    })
+}
 
 function execAndCheck(validator, expectedVersion) {
 
     let promise = new Promise((resolve, reject) => {
 
-        //console.log("calling " + validator.versionCheck + "expecting: " + expectedVersion);
         exec(validator.versionCheck, (error, stdout, stderr) => {
-            //console.log("err: " + error);
+
             if (error) {
-               //console.log("err: " + error);
-                error.stderr = stderr;
-                error.command = validator.versionCheck;
                 reject(stderr);
             }
 
-            //console.log(validator.versionCheck + ", stdout:" + stdout);
-            validator.versionValidate(stdout, expectedVersion) ? resolve(true) : reject(stdout);
+            resolve({
+                result: validator.versionValidate(stdout, expectedVersion),
+                reason: stdout
+            });
+
         });
     });
 

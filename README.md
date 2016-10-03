@@ -8,10 +8,14 @@ Validates your system to make sure you have the correct system tools and depende
 
 ### Usage
 
-For now (until it is built out as a node module),
+Not yet build out as a node module.
  - drop checker.js into your project.
  - add the following to your devDependecies:
-    - xxx
+```
+"bluebird": "^3.4.6",
+"colors": "^1.1.2"
+```
+
  - run `node checker.js`
 
 It will parse your package json and validate that you have the versions installed.
