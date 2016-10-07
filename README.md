@@ -31,4 +31,4 @@ Then run `checker.js` in the root of your project.  It will parse your package.j
 [thali]: http://thaliproject.org/
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
 [engines]: https://docs.npmjs.com/files/package.json#engines
-[validator]: lib/validaterRules.js
+[validator]: lib/validatorRules.js
