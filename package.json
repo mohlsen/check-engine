@@ -5,7 +5,8 @@
   "main": "./lib/checkSystem.js",
   "bin": "./bin/checker.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint bin/**/*.js lib/**/*.js"
   },
   "repository": {
     "type": "git",
