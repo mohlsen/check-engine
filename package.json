@@ -5,7 +5,7 @@
   "main": "./lib/checkSystem.js",
   "bin": "./bin/checker.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape **/*.spec.js | tap-min"
   },
   "repository": {
     "type": "git",
@@ -37,5 +37,9 @@
   "dependencies": {
     "bluebird": "^3.4.6",
     "colors": "^1.1.2"
+  },
+  "devDependencies": {
+    "tap-min": "^1.1.0",
+    "tape": "^4.6.2"
   }
 }
