@@ -24,9 +24,15 @@ See the [validatorRules.js file][validator] file for the full list of things tha
 
 ### Usage
 
-```npm install -g https://github.com/mohlsen/checker.js.git```
+#### Global Install
 
-Then run `checker.js` in the root of your project.  It will parse your package.json and validate that you have the versions installed.
+1. `npm install -g https://github.com/mohlsen/checker.js.git`
+2. Then run `checker.js` in the root of your project.  It will parse your package.json and validate that you have the versions installed.
+
+#### Local Install
+
+1. `npm install https://github.com/mohlsen/checker.js.git` into your project or new location.
+2. From any location on your machine that has a `package.json` file in the current directory, run `node <path to checker install>/bin/checker.js`
 
 [thali]: http://thaliproject.org/
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
