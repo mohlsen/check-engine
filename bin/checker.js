@@ -19,42 +19,33 @@ colors.setTheme({
 console.log('Checking versions...'.info, '\n');
 
 checker().then(result => {
+    // check if the process should exit prematurely
     if (result.status != 0) {
         console.log(colors[result.message.type](result.message.text));
         process.exit(result.status);
     }
 
+    // print out results for each package
     result.packages.forEach(p => {
-        console.log(colors[p.type](p.name));
+        if (p.type === 'success') {
+            console.log(('✔ ' + colors.bold(p.name) + ' was validated with ' + p.expectedVersion).success);
+        }
+        else if (p.type === 'warn') {
+            console.log((colors.bold(p.name) + ' was expected, but no validator found!').warn);
+        }
+        else if (p.type === 'error' && p.commandError) {
+            console.log(('✘ Error validating ' + colors.bold(p.name) + ': ' + p.commandError).error);
+        }
+        else if (p.type === 'error' && !p.commandError) {
+            console.log(('✘ ' + colors.bold(p.name) + ' version is incorrect! Expected ' + p.expectedVersion + ' but was ' + p.foundVersion).error);
+        }
     });
 
+    // print out a summary message
     if (result.message.type === 'success') {
         console.log('\n', result.message.text.boldUnderlineSuccess);
     }
     else {
         console.log('\n', result.message.text.boldUnderlineError);
     }
-
-    process.exit(result.status);
 });
-
-// checkerResult.packages.push({
-//     message: "✔ " + colors.bold(name) + " was validated with " + engines[name],
-//     type: 'sucess'
-// });
-//
-// checkerResult.packages.push({
-//     message: colors.bold(name) + " was expected, but no validator found!",
-//     type: 'warn'
-// });
-//
-// checkerResult.packages.push({
-//     message: "✘ " + colors.bold(name) + " version is incorrect! Expected: " +
-//         engines[name] + " but was " + results.reason.trim(),
-//     type: 'error'
-// });
-//
-// checkerResult.packages.push({
-//     message: "✘ Error validating " + colors.bold(name) + ": " + error.trim(),
-//     type: 'error'
-// });
