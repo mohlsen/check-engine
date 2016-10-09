@@ -5,7 +5,8 @@
   "main": "./lib/checkSystem.js",
   "bin": "./bin/checker.js",
   "scripts": {
-    "test": "tape **/*.spec.js | tap-min"
+    "test": "tape **/*.spec.js | tap-min",
+    "lint": "eslint bin/**/*.js lib/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,8 @@
   },
   "dependencies": {
     "bluebird": "^3.4.6",
-    "colors": "^1.1.2"
+    "colors": "^1.1.2",
+    "lodash": "^4.16.4"
   },
   "devDependencies": {
     "proxyquire": "^1.7.10",
