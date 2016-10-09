@@ -1,7 +1,8 @@
+const path = require('path');
 const fs = require('fs');
 
 function MockFile(filePath, fileContents) {
-    this.path = filePath;
+    this.path = path.join(process.cwd(), filePath);
     this.contents = fileContents;
 
     try {
