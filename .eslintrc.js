@@ -45,7 +45,7 @@ module.exports = {
         "space-before-function-paren": [
             "error",
             {
-                "anonymous": "always",
+                "anonymous": "never",
                 "named": "never"
             }
         ],
@@ -63,7 +63,7 @@ module.exports = {
             }
         ],
         "padded-blocks": ["off"],
-        "brace-style": ['error', '1tbs', {
+        "brace-style": ['error', 'stroustrup', {
             allowSingleLine: true
         }],
         "no-else-return": ["off"],
