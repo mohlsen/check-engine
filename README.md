@@ -34,6 +34,11 @@ See the [validatorRules.js file][validator] file for the full list of things tha
 1. `npm install https://github.com/mohlsen/checker.js.git` into your project or new location.
 2. From any location on your machine that has a `package.json` file in the current directory, run `node <path to checker install>/bin/checker.js`
 
+### Developing checker.js
+
+1. Install ESLint - `npm i -g eslint`
+2. Run `npm run lint`
+
 [thali]: http://thaliproject.org/
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
 [engines]: https://docs.npmjs.com/files/package.json#engines
