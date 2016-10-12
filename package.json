@@ -5,6 +5,7 @@
   "main": "./lib/checkSystem.js",
   "bin": "./bin/checker.js",
   "scripts": {
+    "start": "node bin/checker.js",
     "test": "tape **/*.spec.js | tap-min",
     "lint": "eslint bin/**/*.js lib/**/*.js"
   },
