@@ -5,7 +5,8 @@
   "main": "./lib/checkSystem.js",
   "bin": "./bin/checker.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/checker.js",
+    "test": "tape **/*.spec.js | tap-min",
     "lint": "eslint bin/**/*.js lib/**/*.js"
   },
   "repository": {
@@ -38,6 +39,12 @@
   "dependencies": {
     "bluebird": "^3.4.6",
     "colors": "^1.1.2",
+    "jsonfile": "^2.4.0",
     "lodash": "^4.16.4"
+  },
+  "devDependencies": {
+    "proxyquire": "^1.7.10",
+    "tap-min": "^1.1.0",
+    "tape": "^4.6.2"
   }
 }
