@@ -18,7 +18,7 @@ colors.setTheme({
 
 console.log('Checking versions...'.info, '\n');
 
-checker().then((result) => {
+checker(process.argv[2]).then((result) => {
     // check if the process should exit prematurely
     if (result.status != 0) {
         console.log(colors[result.message.type](result.message.text));
