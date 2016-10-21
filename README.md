@@ -38,6 +38,7 @@ See the [validatorRules.js file][validator] file for the full list of things tha
 
 1. Install ESLint - `npm i -g eslint`
 2. Run `npm run lint`
+3. Run `npm test`
 
 [thali]: http://thaliproject.org/
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
