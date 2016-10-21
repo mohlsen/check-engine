@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mohlsen/checker.js.svg?branch=master)](https://travis-ci.org/mohlsen/checker.js)
+
 # checker.js
 
 A system version checker in Node.js. Inspired by the [Thali Project][thali] in [validateBuildEnvironment.js][thalicode]
@@ -19,6 +21,8 @@ Currently Supporting:
 - ios-deploy
 - ios-sim
 - bower
+- ios-webkit-debug-proxy
+- ideviceinstaller
 
 See the [validatorRules.js file][validator] file for the full list of things that are supported.
 
@@ -38,6 +42,7 @@ See the [validatorRules.js file][validator] file for the full list of things tha
 
 1. Install ESLint - `npm i -g eslint`
 2. Run `npm run lint`
+3. Run `npm test`
 
 [thali]: http://thaliproject.org/
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
