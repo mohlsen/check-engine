@@ -34,7 +34,8 @@
     "ios-sim": "5.0.8",
     "adb": "1.0.36",
     "bower": "1.7.9",
-    "ios-webkit-debug-proxy": "1.2"
+    "ios-webkit-debug-proxy": "1.4_2",
+    "ideviceinstaller": "1.1.0_1"
   },
   "dependencies": {
     "bluebird": "^3.4.6",

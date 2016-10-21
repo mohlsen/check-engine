@@ -21,6 +21,8 @@ Currently Supporting:
 - ios-deploy
 - ios-sim
 - bower
+- ios-webkit-debug-proxy
+- ideviceinstaller
 
 See the [validatorRules.js file][validator] file for the full list of things that are supported.
 
