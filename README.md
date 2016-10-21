@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mohlsen/checker.js.svg?branch=master)](https://travis-ci.org/mohlsen/checker.js)
+
 # checker.js
 
 A system version checker in Node.js. Inspired by the [Thali Project][thali] in [validateBuildEnvironment.js][thalicode]
