@@ -35,7 +35,9 @@
     "adb": "1.0.36",
     "bower": "1.7.9",
     "ios-webkit-debug-proxy": "1.4_2",
-    "ideviceinstaller": "1.1.0_1"
+    "ideviceinstaller": "1.1.0_1",
+    "java": "1.8.0_31",
+    "ant": "1.9.4"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
