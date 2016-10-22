@@ -28,7 +28,7 @@ checker(process.argv[2]).then((result) => {
     // print out results for each package
     result.packages.forEach((p) => {
         if (p.type === 'success') {
-            console.log(('✔ ' + colors.bold(p.name) + ' was validated with ' + p.expectedVersion).success);
+            console.log(('✔ ' + colors.bold(p.name) + ' was validated with ' + p.expectedVersion + '.').success);
         }
         else if (p.type === 'warn') {
             console.log((colors.bold(p.name) + ' was expected, but no validator found!').warn);
@@ -40,7 +40,7 @@ checker(process.argv[2]).then((result) => {
             console.log((
                 '✘ ' + colors.bold(p.name) +
                 ' version is incorrect! Expected ' +
-                p.expectedVersion + ' but was ' + p.foundVersion
+                p.expectedVersion + ' but was ' + p.foundVersion + '.'
             ).error);
         }
     });
