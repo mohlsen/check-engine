@@ -35,8 +35,8 @@ See the [validatorRules.js file][validator] file for the full list of things tha
 #### Install
 Can be installed globally or in a local directory.
 
-- **Globally**: `npm install -g https://github.com/mohlsen/check-engine.git`
-- **Local**: `npm install https://github.com/mohlsen/check-engine.git`
+- **Globally**: `npm install -g check-engine`
+- **Local**: `npm install check-engine`
 
 #### Running:
 1. Run `check-engine [path_to_package.json]`. `check-engine` is located in `bin/check-engine` if using a local install.
