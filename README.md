@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/mohlsen/checker.js.svg?branch=master)](https://travis-ci.org/mohlsen/checker.js)
+[![Build Status](https://travis-ci.org/mohlsen/check-engine.svg?branch=master)](https://travis-ci.org/mohlsen/check-engine)
 
-# checker.js
+# check-engine
 
 A system version checker in Node.js. Inspired by the [Thali Project][thali] in [validateBuildEnvironment.js][thalicode]
 
@@ -31,14 +31,14 @@ See the [validatorRules.js file][validator] file for the full list of things tha
 #### Global Install
 
 1. `npm install -g https://github.com/mohlsen/checker.js.git`
-2. Then run `checker.js` in the root of your project.  It will parse your package.json and validate that you have the versions installed.
+2. Then run `check-engine` in the root of your project.  It will parse your package.json and validate that you have the versions installed.
 
 #### Local Install
 
 1. `npm install https://github.com/mohlsen/checker.js.git` into your project or new location.
-2. From any location on your machine that has a `package.json` file in the current directory, run `node <path to checker install>/bin/checker.js`
+2. From any location on your machine that has a `package.json` file in the current directory, run `node <path to checker install>/bin/check-engine`
 
-### Developing checker.js
+### Developing check-engine
 
 1. Install ESLint - `npm i -g eslint`
 2. Run `npm run lint`
