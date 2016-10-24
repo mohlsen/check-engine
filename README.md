@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mohlsen/checker.js.svg?branch=master)](https://travis-ci.org/mohlsen/checker.js)
+[![Build Status](https://travis-ci.org/mohlsen/check-engine.svg?branch=master)](https://travis-ci.org/mohlsen/check-engine)
 
 # check-engine
 
