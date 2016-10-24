@@ -1,5 +1,4 @@
-
-# check-engine  ![Build Status][travis]
+# check-engine  [![Build Status](https://travis-ci.org/mohlsen/check-engine.svg?branch=master)](https://travis-ci.org/mohlsen/check-engine)
 A utility to check your engines in a package.json for Node.js. Inspired by the [Thali Project][thali] in [validateBuildEnvironment.js][thalicode]
 
 ## About
@@ -34,7 +33,7 @@ See the [validatorRules.js file][validator] file for the full list of things tha
 ### CLI
 
 #### Install
-Can be installed globally or in a local directory. 
+Can be installed globally or in a local directory.
 
 - **Globally**: `npm install -g https://github.com/mohlsen/check-engine.js.git`
 - **Local**: `npm install https://github.com/mohlsen/check-engine.js.git`
@@ -93,5 +92,4 @@ For example usage of this, see [check-engine.js][check-engine-packages].
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
 [engines]: https://docs.npmjs.com/files/package.json#engines
 [validator]: lib/validatorRules.js
-[travis]: https://travis-ci.org/mohlsen/checker.js.svg?branch=master)](https://travis-ci.org/mohlsen/checker.js
 [check-engine-packages]: https://github.com/mohlsen/check-engine/blob/master/bin/check-engine.js#L29
