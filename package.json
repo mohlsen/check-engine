@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohlsen/checker.js.git"
+    "url": "git+https://github.com/mohlsen/check-engine.git"
   },
   "keywords": [
     "node"
@@ -19,9 +19,9 @@
   "author": "Mike Ohlsen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mohlsen/checker.js/issues"
+    "url": "https://github.com/mohlsen/check-engine/issues"
   },
-  "homepage": "https://github.com/mohlsen/checker.js#readme",
+  "homepage": "https://github.com/mohlsen/check-engine#readme",
   "engines": {
     "node": "5.10.1",
     "npm": "3.8.3",
