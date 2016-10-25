@@ -25,6 +25,7 @@ Currently Supporting:
 - ideviceinstaller
 - java
 - ant
+- git
 
 See the [validatorRules.js file][validator] file for the full list of things that are supported.
 

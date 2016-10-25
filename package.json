@@ -39,7 +39,8 @@
     "ios-webkit-debug-proxy": "1.4_2",
     "ideviceinstaller": "1.1.0_1",
     "java": "1.8.0_31",
-    "ant": "1.9.4"
+    "ant": "1.9.4",
+    "git": "2.10.0"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
