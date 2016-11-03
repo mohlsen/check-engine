@@ -51,5 +51,6 @@ checker(process.argv[2]).then((result) => {
     }
     else {
         console.log('\n', result.message.text.boldUnderlineError);
+        process.exit(1);
     }
 });

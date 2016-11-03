@@ -1,9 +1,11 @@
 {
   "name": "check-engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A system version checker in Node.js",
   "main": "./lib/checkSystem.js",
-  "bin": {"check-engine": "./bin/check-engine.js"},
+  "bin": {
+    "check-engine": "./bin/check-engine.js"
+  },
   "scripts": {
     "start": "node bin/check-engine.js",
     "test": "tape **/*.spec.js | tap-min",
@@ -11,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohlsen/checker.js.git"
+    "url": "git+https://github.com/mohlsen/check-engine.git"
   },
   "keywords": [
     "node"
@@ -19,9 +21,9 @@
   "author": "Mike Ohlsen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mohlsen/checker.js/issues"
+    "url": "https://github.com/mohlsen/check-engine/issues"
   },
-  "homepage": "https://github.com/mohlsen/checker.js#readme",
+  "homepage": "https://github.com/mohlsen/check-engine#readme",
   "engines": {
     "node": "5.10.1",
     "npm": "3.8.3",
@@ -37,7 +39,8 @@
     "ios-webkit-debug-proxy": "1.4_2",
     "ideviceinstaller": "1.1.0_1",
     "java": "1.8.0_31",
-    "ant": "1.9.4"
+    "ant": "1.9.4",
+    "git": "2.10.0"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
