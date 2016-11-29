@@ -39,7 +39,7 @@ check-engine can be installed globally or in a local directory.
 
 ### CLI
 
-Simply run: 
+Simply run:
 
 `check-engine [path_to_package.json]`
 
@@ -49,14 +49,14 @@ Where:
   file containing a list of [engines](https://docs.npmjs.com/files/package.json#engines)
   to validate.  If omitted, a package.json file will be looked
   for in the current working directory.
-      
+
 **Note:** If check-engine is installed locally and you are not running it
 as part of an [npm script](https://docs.npmjs.com/misc/scripts), you will
 have to specify the path to the check-engine executable, which will be
 `./node_modules/.bin/check-engine`.  Specifying this path is not necessary
 within npm scripts, because npm automatically puts the `./node_modules/.bin`
 folder into the environment's `PATH`.
- 
+
 
 ### Programmatic
 ```javascript
@@ -96,11 +96,18 @@ The result object contains higher level status, as well as information for indiv
 For example usage of this, see [check-engine.js][check-engine-packages].
 
 ## Developing check-engine
-1. Clone repo then `cd check-engine`.
+
+### Building and Testing
+1. Fork and clone repo then `cd check-engine`.
 2. Install ESLint: `npm i -g eslint`.
 3. Make changes.
 4. Run `npm run lint`.
 5. Run `npm test`.
+6. Push and send a PR.
+
+### Publishing to NPM
+1. Update the version by calling `npm version [major, minor, or patch]`.
+2. Run `npm publish`.
 
 [thali]: http://thaliproject.org/
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
