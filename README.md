@@ -1,5 +1,5 @@
 # check-engine  [![Build Status](https://travis-ci.org/mohlsen/check-engine.svg?branch=master)](https://travis-ci.org/mohlsen/check-engine)
-A utility to check your engines in a package.json for Node.js. Inspired by the [Thali Project][thali] in [validateBuildEnvironment.js][thalicode]
+A utility to check your [package.json engines](https://docs.npmjs.com/files/package.json#engines) in Node.js projects. Inspired by the [Thali Project][thali] in [validateBuildEnvironment.js][thalicode]
 
 ## About
 
@@ -12,8 +12,8 @@ or installed tools validate.
 
 ### Supported Dependencies
 Currently Supporting:
-- osx (MacOS)
-- node
+- OS X (MacOS)
+- Node.js
 - npm
 - jx (JXCore)
 - cordova
@@ -29,21 +29,34 @@ Currently Supporting:
 
 See the [validatorRules.js file][validator] file for the full list of things that are supported.
 
-## Usage
-
-### CLI
-
-#### Install
-Can be installed globally or in a local directory.
+## Install
+check-engine can be installed globally or in a local directory.
 
 - **Globally**: `npm install -g check-engine`
 - **Local**: `npm install check-engine`
 
-#### Running:
-1. Run `check-engine [path_to_package.json]`. `check-engine` is located in `bin/check-engine` if using a local install.
- - if specified, [path_to_package.json], is the location of a `package.json` file for check-engine to validate against.
- - if ommitted, will use one in the current working directory.
-2. It will parse the package.json and validate that you have the versions installed based on the engines defined.
+## Usage
+
+### CLI
+
+Simply run: 
+
+`check-engine [path_to_package.json]`
+
+Where:
+
+- `path_to_package.json` is an optional path to a package.json
+  file containing a list of [engines](https://docs.npmjs.com/files/package.json#engines)
+  to validate.  If omitted, a package.json file will be looked
+  for in the current working directory.
+      
+**Note:** If check-engine is installed locally and you are not running it
+as part of an [npm script](https://docs.npmjs.com/misc/scripts), you will
+have to specify the path to the check-engine executable, which will be
+`./node_modules/.bin/check-engine`.  Specifying this path is not necessary
+within npm scripts, because npm automatically puts the `./node_modules/.bin`
+folder into the environment's `PATH`.
+ 
 
 ### Programmatic
 ```javascript
