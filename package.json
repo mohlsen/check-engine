@@ -28,10 +28,10 @@
     "node": "5.10.1",
     "npm": "3.8.3",
     "osx": "10.11.2",
-    "jx": "0.3.1.4",
+    "jx": "0.3.1.5",
     "cordova": "6.2.0",
     "appium": "1.5.3",
-    "gulp": "3.9.1",
+    "gulp-cli": "1.2.1",
     "ios-deploy": "1.8.6",
     "ios-sim": "5.0.8",
     "adb": "1.0.36",
@@ -40,7 +40,14 @@
     "ideviceinstaller": "1.1.0_1",
     "java": "1.8.0_31",
     "ant": "1.9.4",
-    "git": "2.10.0"
+    "git": "2.10.0",
+    "xcodebuild": "8.2.1",
+    "cocoapods": "1.1.1",
+    "carthage": "0.18.1",
+    "xcpretty": "0.2.4",
+    "libimobiledevice": "1.2.0 HEAD-c7f24a9",
+    "deviceconsole": "1.0.1",
+    "check-engine": "1.2.0"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
