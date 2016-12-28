@@ -26,7 +26,7 @@ Currently Supporting:
 - java
 - ant
 - git
-- gulp
+- gulp-cli
 - [cocoapods](https://cocoapods.org/)
 - xcodebuild
 - [carthage](https://github.com/Carthage/Carthage)
