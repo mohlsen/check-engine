@@ -26,7 +26,14 @@ Currently Supporting:
 - java
 - ant
 - git
-
+- gulp
+- [cocoapods](https://cocoapods.org/)
+- xcodebuild
+- [carthage](https://github.com/Carthage/Carthage)
+- [xcpretty](https://github.com/supermarin/xcpretty)
+- [libimobiledevice](http://www.libimobiledevice.org/)
+- [deviceconsole](https://github.com/rpetrich/deviceconsole)
+- [check-engine](https://github.com/mohlsen/check-engine)
 See the [validatorRules.js file][validator] file for the full list of things that are supported.
 
 ## Install
