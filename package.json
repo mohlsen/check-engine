@@ -47,7 +47,9 @@
     "xcpretty": "0.2.4",
     "libimobiledevice": "1.2.0 HEAD-c7f24a9",
     "deviceconsole": "1.0.1",
-    "check-engine": "1.2.0"
+    "check-engine": "1.2.0",
+    "yarn":"0.19.1",
+    "nsp":"2.6.2"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
