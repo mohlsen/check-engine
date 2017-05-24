@@ -120,7 +120,7 @@ For example usage of this, see [check-engine.js][check-engine-packages].
 2. Run `npm publish`.
 
 [thali]: http://thaliproject.org/
-[thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/vNext_yarong_1028/thali/install/validateBuildEnvironment.js
+[thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/master/thali/install/validateBuildEnvironment.js
 [engines]: https://docs.npmjs.com/files/package.json#engines
 [validator]: lib/validatorRules.js
 [check-engine-packages]: https://github.com/mohlsen/check-engine/blob/master/bin/check-engine.js#L29
