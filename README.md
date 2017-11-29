@@ -96,9 +96,9 @@ The result object contains higher level status, as well as information for indiv
             name: 'name of package',
             type: 'error', 'success', or 'warn',
             validatorFound: true or false,
-            expectedVersion: 'version listed in package.json for this package' (exists only if validatorFound is true),
-            commandError: 'error result from validator process execution' (exists only if error occurred),
-            foundVersion: 'version number found' (exists only if validatorFound is true and there was no commandError error)
+            expectedVersion: 'version listed in package.json for this package', // exists only if validatorFound is true
+            commandError: 'error result from validator process execution', // exists only if error occurred
+            foundVersion: 'version number found' // exists only if validatorFound is true and there was no commandError error
         }
     ]
 }
