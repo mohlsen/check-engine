@@ -12,32 +12,37 @@ or installed tools validate.
 
 ### Supported Dependencies
 Currently Supporting:
-- OS X (MacOS)
-- Node.js
-- npm
-- jx (JXCore)
-- cordova
-- appium
-- ios-deploy
-- ios-sim
-- bower
-- ios-webkit-debug-proxy
-- ideviceinstaller
-- java
-- ant
-- git
-- gulp-cli
-- [cocoapods](https://cocoapods.org/)
-- xcodebuild
-- [carthage](https://github.com/Carthage/Carthage)
-- [xcpretty](https://github.com/supermarin/xcpretty)
-- [libimobiledevice](http://www.libimobiledevice.org/)
-- [deviceconsole](https://github.com/rpetrich/deviceconsole)
-- [check-engine](https://github.com/mohlsen/check-engine)
-- [yarn](https://yarnpkg.com/)
-- [nsp](https://github.com/nodesecurity/nsp)
+
+| Dependencies                         | Semantic Versioning |
+| -------------------------------------|:-------------------:|
+| OS X (MacOS)                         |                     |
+| Node.js                              | :white_check_mark:  |
+| npm                                  | :white_check_mark:  |
+| jx (JXCore)                          |                     |
+| cordova                              |                     |
+| appium                               |                     |
+| ios-deploy                           |                     |
+| ios-sim                              |                     |
+| bower                                | :white_check_mark:  |
+| ios-webkit-debug-proxy               |                     |
+| ideviceinstaller                     |                     |
+| java                                 |                     |
+| ant                                  |                     |
+| git                                  |                     |
+| gulp-cli                             |                     |
+| [cocoapods][cocoapods]               |                     |
+| xcodebuild                           |                     |
+| [carthage][carthage]                 |                     |
+| [xcpretty][xcpretty]                 |                     |
+| [libimobiledevice][libimobiledevice] |                     |
+| [deviceconsole][deviceconsole]       |                     |
+| [check-engine][check-engine]         |                     |
+| [yarn][yarn]                         | :white_check_mark:  |
+| [nsp][nsp]                           |                     |
 
 See the [validatorRules.js file][validator] file for the full list of things that are supported.
+
+Some dependencies support engines with [Semantic Versioning](https://semver.org/).
 
 ## Install
 check-engine can be installed globally or in a local directory.
@@ -124,3 +129,11 @@ For example usage of this, see [check-engine.js][check-engine-packages].
 [engines]: https://docs.npmjs.com/files/package.json#engines
 [validator]: lib/validatorRules.js
 [check-engine-packages]: https://github.com/mohlsen/check-engine/blob/master/bin/check-engine.js#L29
+[cocoapods]:https://cocoapods.org/
+[carthage]:https://github.com/Carthage/Carthage
+[xcpretty]:https://github.com/supermarin/xcpretty
+[libimobiledevice]:http://www.libimobiledevice.org/
+[deviceconsole]:https://github.com/rpetrich/deviceconsole
+[check-engine]:https://github.com/mohlsen/check-engine
+[yarn]:https://yarnpkg.com/
+[nsp]:https://github.com/nodesecurity/nsp
