@@ -55,7 +55,8 @@
     "bluebird": "^3.4.6",
     "colors": "^1.1.2",
     "jsonfile": "^2.4.0",
-    "lodash": "^4.16.4"
+    "lodash": "^4.16.4",
+    "semver": "^5.5.0"
   },
   "devDependencies": {
     "proxyquire": "^1.7.10",
