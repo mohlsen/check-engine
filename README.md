@@ -4,7 +4,7 @@ A utility to check your [package.json engines](https://docs.npmjs.com/files/pack
 ## About
 
 ### Why
-For projects of all sizes, but especially for mid to large size teams, evenironemts get out of sync.  Even slight variations in these build / development environments can kill productivity.  
+For projects of all sizes, but especially for mid to large size teams, environments get out of sync.  Even slight variations in these build / development environments can kill productivity.  
 
 ### What This Does
 Validates your system to make sure you have the correct system tools and dependencies installed.  Uses the [engine  object][engines] from a `package.json` located in the current or specified directory to determine what system dependencies
