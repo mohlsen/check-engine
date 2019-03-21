@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node bin/check-engine.js",
     "test": "tape **/*.spec.js | tap-min",
-    "lint": "eslint bin/**/*.js lib/**/*.js"
+    "lint": "./node_modules/.bin/eslint bin/**/*.js lib/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "semver": "5.6.0"
   },
   "devDependencies": {
+    "eslint": "5.15.3",
     "proxyquire": "2.1.0",
     "tap-min": "2.0.0",
     "tape": "4.10.1"
