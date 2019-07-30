@@ -1,6 +1,6 @@
 {
   "name": "check-engine",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "A system version checker in Node.js",
   "main": "./lib/checkSystem.js",
   "bin": {
