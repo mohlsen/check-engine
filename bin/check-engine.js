@@ -20,7 +20,7 @@ console.log('Checking versions...'.info, '\n');
 
 checker(process.argv[2]).then((result) => {
     // check if the process should exit prematurely
-    if (result.status != 0) {
+    if (result.status !== 0) {
         console.log(colors[result.message.type](result.message.text));
         process.exit(result.status);
     }
@@ -46,11 +46,10 @@ checker(process.argv[2]).then((result) => {
     });
 
     // print out a summary message
-    if (result.message.type === 'success') {
-        console.log('\n', result.message.text.boldUnderlineSuccess);
-    }
-    else {
+    if (result.message.type !== 'success') {
         console.log('\n', result.message.text.boldUnderlineError);
         process.exit(1);
     }
+
+    console.log('\n', result.message.text.boldUnderlineSuccess);
 });
