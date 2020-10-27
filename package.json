@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/mohlsen/check-engine#readme",
   "engines": {
-    "node": ">=8.6.0"
+    "node": ">=10"
   },
   "dependencies": {
     "bluebird": "3.7.2",
