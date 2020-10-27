@@ -5,7 +5,7 @@
 const checker = require('../lib/checkSystem.js');
 const colors = require('colors');
 const yargs = require('yargs/yargs');
-const commandLineUsage = require('command-line-usage')
+const commandLineUsage = require('command-line-usage');
 
 const commandLineOptions = [
     {
@@ -23,7 +23,8 @@ const commandLineOptions = [
     {
         header: 'Arguments',
         content: [
-            { name: 'file', summary: 'Optional path to the {italic package.json} file to process. Defaults to {italic package.json} file in running directory if not provided.' }
+            { name: 'file', summary: `Optional path to the {italic package.json} file to process. Defaults to 
+                                        {italic package.json} file in running directory if not provided.` }
         ]
     },
     {
@@ -39,8 +40,8 @@ const commandLineOptions = [
     }
 ];
 
-const usage = commandLineUsage(commandLineOptions)
-const argv = yargs(process.argv.slice(2)).help(false).argv
+const usage = commandLineUsage(commandLineOptions);
+const argv = yargs(process.argv.slice(2)).help(false).argv;
 
 if (argv.help || argv.h) {
     console.log(usage);
