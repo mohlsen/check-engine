@@ -1,6 +1,6 @@
 {
   "name": "check-engine",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "description": "A system version checker in Node.js",
   "main": "./lib/checkSystem.js",
   "bin": {
@@ -30,8 +30,10 @@
   "dependencies": {
     "bluebird": "3.7.2",
     "colors": "1.4.0",
+    "command-line-usage": "6.1.0",
     "jsonfile": "6.0.1",
-    "semver": "7.3.2"
+    "semver": "7.3.2",
+    "yargs": "16.1.0"
   },
   "devDependencies": {
     "eslint": "7.12.0",

@@ -4,6 +4,49 @@
 
 const checker = require('../lib/checkSystem.js');
 const colors = require('colors');
+const yargs = require('yargs/yargs');
+const commandLineUsage = require('command-line-usage');
+
+const commandLineOptions = [
+    {
+        header: 'check-engine',
+        content: 'A utility to check your package.json engines in Node.js projects.'
+    },
+    {
+        header: 'Synopsis',
+        content: [
+            '$ check-engine',
+            '$ check-engine <argument> <options>',
+            '$ check-engine --help'
+        ]
+    },
+    {
+        header: 'Arguments',
+        content: [
+            { name: 'file', summary: `Optional path to the {italic package.json} file to process. Defaults to 
+                                        {italic package.json} file in running directory if not provided.` }
+        ]
+    },
+    {
+        header: 'Options',
+        optionList: [
+            {
+                name: 'help',
+                description: 'Display this usage guide.',
+                alias: 'h',
+                type: Boolean
+            }
+        ]
+    }
+];
+
+const usage = commandLineUsage(commandLineOptions);
+const argv = yargs(process.argv.slice(2)).help(false).argv;
+
+if (argv.help || argv.h) {
+    console.log(usage);
+    process.exit(0);
+}
 
 // set color theme
 colors.setTheme({
