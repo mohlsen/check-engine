@@ -56,7 +56,7 @@ check-engine can be installed globally or in a local directory.
 
 Simply run:
 
-`check-engine [path_to_package.json]`
+`check-engine [path_to_package.json] [options]`
 
 Where:
 
@@ -64,6 +64,12 @@ Where:
   file containing a list of [engines](https://docs.npmjs.com/files/package.json#engines)
   to validate.  If omitted, a package.json file will be looked
   for in the current working directory.
+
+and [options]:
+
+- `--ignore`: Ignore package validation errors and do not return an error exit code. Parsing issues or 
+  fatal errors will still return a error code.
+- `--help`: Display command line options
 
 **Note:** If check-engine is installed locally and you are not running it
 as part of an [npm script](https://docs.npmjs.com/misc/scripts), you will
@@ -87,7 +93,7 @@ checkEngine('<path to package.json>').then((result) => {
 
 ```
 
-The result object contains higher level status, as well as information for individual packages that were validated.  The above example only shows the high level. The object structure for the result object is as follows:
+The resolved object contains higher level status, as well as information for individual packages that were validated.  The above example only shows the high level. The object structure for the result object is as follows:
 
 ```javascript
 {
@@ -108,6 +114,7 @@ The result object contains higher level status, as well as information for indiv
     ]
 }
 ```
+
 For example usage of this, see [check-engine.js][check-engine-packages].
 
 ## Developing check-engine
