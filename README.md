@@ -70,6 +70,7 @@ and [options]:
 - `--ignore`: Ignore package validation errors and do not return an error exit code. Parsing issues or 
   fatal errors will still return a error code.
 - `--help`: Display command line options
+- `--version`: Display version
 
 **Note:** If check-engine is installed locally and you are not running it
 as part of an [npm script](https://docs.npmjs.com/misc/scripts), you will
