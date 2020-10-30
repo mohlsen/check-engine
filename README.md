@@ -128,9 +128,12 @@ For example usage of this, see [check-engine.js][check-engine-packages].
 5. Run `npm test`.
 6. Push and send a PR.
 
-### Publishing to NPM
+### Publishing to NPM and Releasing
 1. Update the version by calling `npm version [major, minor, or patch]`.
 2. Run `npm publish`.
+3. `git push --tags`
+4. Create a release for the tag on GitHub and describe changes.
+
 
 [thali]: http://thaliproject.org/
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/master/thali/install/validateBuildEnvironment.js
