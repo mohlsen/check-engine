@@ -40,6 +40,12 @@ const commandLineOptions = [
                 name: 'ignore',
                 description: 'Do not end the process with an exit code if there are errors validating packages.',
                 type: Boolean
+            },
+            {
+                name: 'version',
+                description: 'Display version information.',
+                alias: 'v',
+                type: Boolean
             }
         ]
     }
@@ -48,6 +54,7 @@ const commandLineOptions = [
 const usage = commandLineUsage(commandLineOptions);
 const argv = yargs(process.argv.slice(2))
     .help(false)
+    .alias('v','version')
     .argv;
 
 if (argv.help || argv.h) {
