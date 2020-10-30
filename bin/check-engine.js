@@ -35,18 +35,28 @@ const commandLineOptions = [
                 description: 'Display this usage guide.',
                 alias: 'h',
                 type: Boolean
+            },
+            {
+                name: 'ignore',
+                description: 'Do not end the process with an exit code if there are errors validating packages.',
+                type: Boolean
             }
         ]
     }
 ];
 
 const usage = commandLineUsage(commandLineOptions);
-const argv = yargs(process.argv.slice(2)).help(false).argv;
+const argv = yargs(process.argv.slice(2))
+    .help(false)
+    .argv;
 
 if (argv.help || argv.h) {
     console.log(usage);
     process.exit(0);
 }
+
+const ignoreValidationErrors = argv.ignore;
+const fileToParse = argv._[0];
 
 // set color theme
 colors.setTheme({
@@ -61,7 +71,7 @@ colors.setTheme({
 
 console.log('Checking versions...'.info, '\n');
 
-checker(process.argv[2]).then((result) => {
+checker(fileToParse).then((result) => {
     // check if the process should exit prematurely
     if (result.status !== 0) {
         console.log(colors[result.message.type](result.message.text));
@@ -91,7 +101,9 @@ checker(process.argv[2]).then((result) => {
     // print out a summary message
     if (result.message.type !== 'success') {
         console.log('\n', result.message.text.boldUnderlineError);
-        process.exit(1);
+
+        ignoreValidationErrors === true ? process.exit(0) : process.exit(1);
+        
     }
 
     console.log('\n', result.message.text.boldUnderlineSuccess);
