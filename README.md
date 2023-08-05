@@ -13,32 +13,33 @@ or installed tools validate.
 ### Supported Dependencies
 Currently Supporting:
 
-| Dependencies                         | Semantic Versioning |
-| -------------------------------------|:-------------------:|
-| OS X (MacOS)                         |                     |
-| Node.js                              | :white_check_mark:  |
-| npm                                  | :white_check_mark:  |
-| jx (JXCore)                          |                     |
-| cordova                              |                     |
-| appium                               |                     |
-| ios-deploy                           |                     |
-| ios-sim                              |                     |
-| bower                                | :white_check_mark:  |
-| ios-webkit-debug-proxy               |                     |
-| ideviceinstaller                     |                     |
-| java                                 |                     |
-| ant                                  |                     |
-| git                                  |                     |
-| gulp-cli                             |                     |
-| [cocoapods][cocoapods]               |                     |
-| xcodebuild                           |                     |
-| [carthage][carthage]                 |                     |
-| [xcpretty][xcpretty]                 |                     |
+| Dependencies                   | Semantic Versioning |
+|--------------------------------|:-------------------:|
+| OS X (MacOS)                   |                     |
+| Node.js                        | :white_check_mark:  |
+| npm                            | :white_check_mark:  |
+| jx (JXCore)                    |                     |
+| cordova                        |                     |
+| appium                         |                     |
+| ios-deploy                     |                     |
+| ios-sim                        |                     |
+| bower                          | :white_check_mark:  |
+| ios-webkit-debug-proxy         |                     |
+| ideviceinstaller               |                     |
+| java                           |                     |
+| ant                            |                     |
+| git                            |                     |
+| gulp-cli                       |                     |
+| [cocoapods][cocoapods]         |                     |
+| xcodebuild                     |                     |
+| [carthage][carthage]           |                     |
+| [xcpretty][xcpretty]           |                     |
 | [libimobiledevice][libimobiledevice] |                     |
-| [deviceconsole][deviceconsole]       |                     |
-| [check-engine][check-engine]         |                     |
-| [yarn][yarn]                         | :white_check_mark:  |
-| [nsp][nsp]                           |                     |
+| [deviceconsole][deviceconsole] |                     |
+| [check-engine][check-engine]   |                     |
+| [yarn][yarn]                   | :white_check_mark:  |
+| [nsp][nsp]                     |                     |
+| [pnpm](https://pnpm.io/)       | :white_check_mark:  |
 
 See the [validatorRules.js file][validator] file for the full list of things that are supported.
 
