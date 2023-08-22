@@ -14,7 +14,7 @@ or installed tools validate.
 Currently Supporting:
 
 | Dependencies                         | Semantic Versioning |
-| -------------------------------------|:-------------------:|
+|--------------------------------------|:-------------------:|
 | OS X (MacOS)                         |                     |
 | Node.js                              | :white_check_mark:  |
 | npm                                  | :white_check_mark:  |
@@ -39,6 +39,7 @@ Currently Supporting:
 | [check-engine][check-engine]         |                     |
 | [yarn][yarn]                         | :white_check_mark:  |
 | [nsp][nsp]                           |                     |
+| [pnpm][pnpm]                         | :white_check_mark:  |
 
 See the [validatorRules.js file][validator] file for the full list of things that are supported.
 
@@ -148,3 +149,4 @@ For example usage of this, see [check-engine.js][check-engine-packages].
 [check-engine]:https://github.com/mohlsen/check-engine
 [yarn]:https://yarnpkg.com/
 [nsp]:https://github.com/nodesecurity/nsp
+[pnpm]:https://pnpm.io/
