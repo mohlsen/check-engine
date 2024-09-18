@@ -1,4 +1,4 @@
-# check-engine  [![Build Status](https://travis-ci.org/mohlsen/check-engine.svg?branch=master)](https://travis-ci.org/mohlsen/check-engine)
+# check-engine ![Build Status](https://github.com/mohlsen/check-engine/actions/workflows/validation.yml/badge.svg?branch=master)
 A utility to check your [package.json engines](https://docs.npmjs.com/files/package.json#engines) in Node.js projects. Inspired by the [Thali Project][thali] in [validateBuildEnvironment.js][thalicode]
 
 ## About
