@@ -1,14 +1,22 @@
-# check-engine ![Build Status](https://github.com/mohlsen/check-engine/actions/workflows/validation.yml/badge.svg?branch=master)
+# check-engine
+
+[![Build Status](https://github.com/mohlsen/check-engine/actions/workflows/validation.yml/badge.svg?branch=master)](https://github.com/mohlsen/check-engine/actions/workflows/validation.yml)
+[![npm version](https://badge.fury.io/js/check-engine.svg)](https://www.npmjs.com/package/check-engine)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A utility to check your [package.json engines](https://docs.npmjs.com/files/package.json#engines) in Node.js projects. Inspired by the [Thali Project][thali] in [validateBuildEnvironment.js][thalicode]
 
 ## About
 
 ### Why
-For projects of all sizes, but especially for mid to large size teams, environments get out of sync.  Even slight variations in these build / development environments can kill productivity.  
+For projects of all sizes, but especially for mid to large size teams, environments get out of sync. Even slight variations in these build / development environments can kill productivity.
 
 ### What This Does
-Validates your system to make sure you have the correct system tools and dependencies installed.  Uses the [engine  object][engines] from a `package.json` located in the current or specified directory to determine what system dependencies
-or installed tools validate.
+Validates your system to make sure you have the correct system tools and dependencies installed. Uses the [engine object][engines] from a `package.json` located in the current or specified directory to determine what system dependencies or installed tools validate.
+
+## Requirements
+
+- Node.js >= 18
 
 ### Supported Dependencies
 Currently Supporting:
@@ -121,19 +129,29 @@ For example usage of this, see [check-engine.js][check-engine-packages].
 
 ## Developing check-engine
 
-### Building and Testing
-1. Fork and clone repo then `cd check-engine`.
-2. Install ESLint: `npm i -g eslint`.
-3. Make changes.
-4. Run `npm run lint`.
-5. Run `npm test`.
-6. Push and send a PR.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
+
+### Quick Start
+1. Fork and clone the repo, then `cd check-engine`
+2. Install dependencies: `npm install`
+3. Make changes
+4. Run `npm run lint` to check code style
+5. Run `npm test` to run tests
+6. Push and send a PR
 
 ### Publishing to NPM and Releasing
-1. Update the version by calling `npm version [major, minor, or patch]`.
-2. Run `npm publish`.
+1. Update the version by calling `npm version [major, minor, or patch]`
+2. Run `npm publish`
 3. `git push --tags`
-4. Create a release for the tag on GitHub and describe changes.
+4. Create a release for the tag on GitHub and describe changes
+
+## Security
+
+For information about reporting security vulnerabilities, see [SECURITY.md](SECURITY.md).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
 [thali]: http://thaliproject.org/
