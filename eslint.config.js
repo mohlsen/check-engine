@@ -12,7 +12,7 @@ module.exports = [
             sourceType: "commonjs",
             globals: {
                 ...globals.node,
-                ...globals.es2021,
+                ...globals.es2022,
                 describe: true,
                 it: true,
                 jasmine: true,
