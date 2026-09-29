@@ -20,7 +20,7 @@ This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participatin
 
 ### Prerequisites
 
-- Node.js >= 18
+- Node.js ^20.19.0 || >=22.12.0
 - npm >= 9
 - Git
 

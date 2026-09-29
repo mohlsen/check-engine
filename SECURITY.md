@@ -38,7 +38,7 @@ When using check-engine:
 
 1. Always use the latest version to ensure you have the most recent security patches.
 2. Run `npm audit` in your projects to check for known vulnerabilities.
-3. Keep your Node.js version up to date (we require Node.js 18 or higher).
+3. Keep your Node.js version up to date (we require Node.js 20.19+ or 22.12+).
 
 ## Disclosure Policy
 

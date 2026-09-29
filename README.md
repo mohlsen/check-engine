@@ -16,7 +16,7 @@ Validates your system to make sure you have the correct system tools and depende
 
 ## Requirements
 
-- Node.js >= 18
+- Node.js ^20.19.0 || >=22.12.0
 
 ### Supported Dependencies
 Currently Supporting:
