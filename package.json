@@ -6,6 +6,11 @@
   "bin": {
     "check-engine": "./bin/check-engine.js"
   },
+  "files": [
+    "bin/",
+    "lib/",
+    "!lib/*.spec.js"
+  ],
   "scripts": {
     "start": "node bin/check-engine.js",
     "test": "tape lib/*.spec.js | tap-min",

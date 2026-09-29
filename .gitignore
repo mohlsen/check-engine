@@ -39,3 +39,7 @@ jspm_packages
 # IDEs
 .vscode
 .idea
+
+# Claude Code (local-only files; .claude/settings.json and .claude/skills are shared)
+.claude/worktrees/
+.claude/settings.local.json
