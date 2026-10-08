@@ -19,39 +19,45 @@ Validates your system to make sure you have the correct system tools and depende
 - Node.js ^20.19.0 || >=22.12.0
 
 ### Supported Dependencies
-Currently Supporting:
+Use these keys in your `engines` object. Every validator supports [semver](https://semver.org/) ranges
+(`^`, `~`, `>=`, `x`, `*`, `||`); the first version-looking token in the command's output is compared.
 
-| Dependencies                         | Semantic Versioning |
-|--------------------------------------|:-------------------:|
-| OS X (MacOS)                         |                     |
-| Node.js                              | :white_check_mark:  |
-| npm                                  | :white_check_mark:  |
-| jx (JXCore)                          |                     |
-| cordova                              |                     |
-| appium                               |                     |
-| ios-deploy                           |                     |
-| ios-sim                              |                     |
-| bower                                | :white_check_mark:  |
-| ios-webkit-debug-proxy               |                     |
-| ideviceinstaller                     |                     |
-| java                                 |                     |
-| ant                                  |                     |
-| git                                  |                     |
-| gulp-cli                             |                     |
-| [cocoapods][cocoapods]               |                     |
-| xcodebuild                           |                     |
-| [carthage][carthage]                 |                     |
-| [xcpretty][xcpretty]                 |                     |
-| [libimobiledevice][libimobiledevice] |                     |
-| [deviceconsole][deviceconsole]       |                     |
-| [check-engine][check-engine]         |                     |
-| [yarn][yarn]                         | :white_check_mark:  |
-| [nsp][nsp]                           |                     |
-| [pnpm][pnpm]                         | :white_check_mark:  |
+| `engines` key                          | Command run                                     |
+|----------------------------------------|-------------------------------------------------|
+| `osx` (macOS)                          | `sw_vers -productVersion`                       |
+| `node`                                 | `node -v`                                       |
+| `npm`                                  | `npm -v`                                        |
+| `jx` (JXcore)                          | `jx -jxv`                                       |
+| `cordova`                              | `cordova -v`                                    |
+| `appium`                               | `appium -v`                                     |
+| `ios-deploy`                           | `ios-deploy -V`                                 |
+| `ios-sim`                              | `ios-sim --version`                             |
+| `bower`                                | `bower -v`                                      |
+| `ios-webkit-debug-proxy`               | `brew list ios-webkit-debug-proxy --versions`   |
+| `ideviceinstaller`                     | `brew list ideviceinstaller --versions`         |
+| `java` (JDK)                           | `javac -version 2>&1`                           |
+| `ant`                                  | `ant -version`                                  |
+| `adb`                                  | `adb version`                                   |
+| `git`                                  | `git --version`                                 |
+| `windows`                              | `ver`                                           |
+| `gulp-cli`                             | `npm list --depth=0 -g \| grep gulp-cli`        |
+| [`cocoapods`][cocoapods]               | `pod --version`                                 |
+| `xcodebuild`                           | `xcodebuild -version`                           |
+| [`carthage`][carthage]                 | `carthage version`                              |
+| [`xcpretty`][xcpretty]                 | `xcpretty -v`                                   |
+| [`libimobiledevice`][libimobiledevice] | `brew list --versions \| grep libimobiledevice` |
+| [`deviceconsole`][deviceconsole]       | `npm list --depth=0 -g \| grep deviceconsole`   |
+| [`check-engine`][check-engine]         | `npm list --depth=0 -g \| grep check-engine`    |
+| [`yarn`][yarn]                         | `yarn -v`                                       |
+| [`nsp`][nsp]                           | `nsp --version`                                 |
+| [`pnpm`][pnpm]                         | `pnpm -v`                                       |
 
-See the [validatorRules.js file][validator] file for the full list of things that are supported.
+See [validatorRules.js][validator] for the source of truth.
 
-Some dependencies support engines with [Semantic Versioning](https://semver.org/).
+Notes:
+- Any key in `engines` without a validator is reported as a warning **and** makes the check fail.
+- Commands run through your system shell. Rules using `brew` need Homebrew; rules using `| grep` don't work in
+  Windows `cmd.exe`; `osx` and `windows` only work on their respective OS.
 
 ## Install
 check-engine can be installed globally or in a local directory.
@@ -91,35 +97,40 @@ folder into the environment's `PATH`.
 
 ### Programmatic
 ```javascript
-var checkEngine = require('check-engine');
+const checkEngine = require('check-engine');
 
 checkEngine('<path to package.json>').then((result) => {
     if (result.status !== 0) {
-        console.log('it failed!');
-    } else {
+        console.log('could not read package.json or its engines!');
+    }
+    else if (result.message.type !== 'success') {
+        console.log('environment is invalid!');
+    }
+    else {
         console.log('it worked!');
     }
-}
-
+});
 ```
 
-The resolved object contains higher level status, as well as information for individual packages that were validated.  The above example only shows the high level. The object structure for the result object is as follows:
+The promise always resolves (it does not reject). The resolved object contains a high-level status, as well as
+information for individual packages that were validated. The object structure is as follows:
 
 ```javascript
 {
-    status: 0 if successful, -1 otherwise
+    status: 0, // -1 only if the package.json could not be read or has no engines; 0 otherwise
+               // (including when validation fails - use message.type to detect that)
     message: {
-        text: 'overall error description'
+        text: 'overall description',
         type: 'error' or 'success'
     },
-    packages: [
+    packages: [ // in completion order, not engines order
         {
             name: 'name of package',
             type: 'error', 'success', or 'warn',
             validatorFound: true or false,
             expectedVersion: 'version listed in package.json for this package', // exists only if validatorFound is true
             commandError: 'error result from validator process execution', // exists only if error occurred
-            foundVersion: 'version number found' // exists only if validatorFound is true and there was no commandError error
+            foundVersion: 'version output found' // exists only if validatorFound is true and there was no commandError
         }
     ]
 }
@@ -133,11 +144,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
 
 ### Quick Start
 1. Fork and clone the repo, then `cd check-engine`
-2. Install dependencies: `npm install`
-3. Make changes
+2. Install dependencies: `npm ci`
+3. Make changes. To add support for a new tool, see [docs/adding-a-validator.md](docs/adding-a-validator.md)
 4. Run `npm run lint` to check code style
 5. Run `npm test` to run tests
 6. Push and send a PR
+
+See [AGENTS.md](AGENTS.md) for conventions and [docs/](docs/) for architecture notes and known issues. These are
+written for AI coding agents but are equally useful for humans.
 
 ### Publishing to NPM and Releasing
 1. Update the version by calling `npm version [major, minor, or patch]`
@@ -158,7 +172,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [thalicode]: https://github.com/thaliproject/Thali_CordovaPlugin/blob/master/thali/install/validateBuildEnvironment.js
 [engines]: https://docs.npmjs.com/files/package.json#engines
 [validator]: lib/validatorRules.js
-[check-engine-packages]: https://github.com/mohlsen/check-engine/blob/master/bin/check-engine.js#L29
+[check-engine-packages]: https://github.com/mohlsen/check-engine/blob/master/bin/check-engine.js
 [cocoapods]:https://cocoapods.org/
 [carthage]:https://github.com/Carthage/Carthage
 [xcpretty]:https://github.com/supermarin/xcpretty
